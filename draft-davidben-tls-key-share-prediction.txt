@@ -90,9 +90,7 @@ Table of Contents
    6.  IANA Considerations
      6.1.  Updates to the TLS Supported Groups Registry
      6.2.  Updates to the Service Parameter Keys Registry
-   7.  References
-     7.1.  Normative References
-     7.2.  Informative References
+   7.  Normative References
    Acknowledgments
    Author's Address
 
@@ -309,7 +307,9 @@ Table of Contents
    This section defines the tls-supported-groups SvcParamKey
    [I-D.ietf-dnsop-svcb-https], which specifies the endpoint's TLS
    supported group preferences, as a sequence of TLS NamedGroup
-   codepoints in order of decreasing preference.
+   codepoints in order of decreasing preference.  This allows clients
+   connecting to the endpoint to reduce the likelihood of needing a
+   HelloRetryRequest.
 
 4.1.  Format
 
@@ -343,19 +343,10 @@ Table of Contents
    the client MUST ignore any codepoints that it does not support or
    recognize.
 
-   If one of the following hold, the client MAY use the result to
-   predict key shares in the initial ClientHello:
-
-   *  The HTTPS or SVCB record was authenticated by the origin server,
-      or
-
-   *  The resulting prediction is consistent with client preferences, as
-      described in Section 3.4
-
-   Otherwise, the client SHOULD ignore the parameter and compute
-   key_share via its usual logic.  Note a secure connection to the DNS
-   resolver, such as DNS over TLS [RFC7858] or DNS over HTTPS [RFC8484],
-   is not sufficient to authenticate the record by the origin server.
+   If the resulting prediction is consistent with client preferences, as
+   described in Section 3.4, the client MAY use the result to predict
+   key shares in the initial ClientHello.  Otherwise, the client SHOULD
+   ignore the parameter and compute key_share via its usual logic.
 
 4.4.  Misprediction
 
@@ -446,9 +437,7 @@ Table of Contents
 
                                  Table 1
 
-7.  References
-
-7.1.  Normative References
+7.  Normative References
 
    [I-D.ietf-dnsop-svcb-https]
               Schwartz, B. M., Bishop, M., and E. Nygren, "Service
@@ -481,17 +470,6 @@ Table of Contents
               Sustain Extensibility (GREASE) to TLS Extensibility",
               RFC 8701, DOI 10.17487/RFC8701, January 2020,
               <https://www.rfc-editor.org/rfc/rfc8701>.
-
-7.2.  Informative References
-
-   [RFC7858]  Hu, Z., Zhu, L., Heidemann, J., Mankin, A., Wessels, D.,
-              and P. Hoffman, "Specification for DNS over Transport
-              Layer Security (TLS)", RFC 7858, DOI 10.17487/RFC7858, May
-              2016, <https://www.rfc-editor.org/rfc/rfc7858>.
-
-   [RFC8484]  Hoffman, P. and P. McManus, "DNS Queries over HTTPS
-              (DoH)", RFC 8484, DOI 10.17487/RFC8484, October 2018,
-              <https://www.rfc-editor.org/rfc/rfc8484>.
 
 Acknowledgments
 
