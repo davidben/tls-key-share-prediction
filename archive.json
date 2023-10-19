@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2023-10-17T01:09:39.840236+00:00",
+  "timestamp": "2023-10-19T01:09:01.938589+00:00",
   "repo": "davidben/tls-key-share-prediction",
   "labels": [
     {
@@ -49,6 +49,23 @@
       "color": "ffffff"
     }
   ],
-  "issues": [],
+  "issues": [
+    {
+      "number": 1,
+      "id": "I_kwDOKfBef850P5fk",
+      "title": "Rephrase server selection algorithm to select a list from supported_groups",
+      "url": "https://github.com/davidben/tls-key-share-prediction/issues/1",
+      "state": "OPEN",
+      "author": "davidben",
+      "authorAssociation": "OWNER",
+      "assignees": [],
+      "labels": [],
+      "body": "@bwesterb had an idea that we should say:\r\n1. Pick a set of equipreference groups from supported_groups\r\n2. Pick among the equipreference groups using key_share\r\n\r\nThat's probably a bit clearer. Filing this so I don't forget.",
+      "createdAt": "2023-10-18T17:50:56Z",
+      "updatedAt": "2023-10-18T17:50:56Z",
+      "closedAt": null,
+      "comments": []
+    }
+  ],
   "pulls": []
 }
