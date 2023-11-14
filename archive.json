@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2023-11-12T01:14:55.550711+00:00",
+  "timestamp": "2023-11-14T01:10:22.260303+00:00",
   "repo": "davidben/tls-key-share-prediction",
   "labels": [
     {
@@ -65,6 +65,30 @@
       "updatedAt": "2023-10-18T17:50:56Z",
       "closedAt": null,
       "comments": []
+    },
+    {
+      "number": 2,
+      "id": "I_kwDOKfBef852lqx7",
+      "title": "As an ECH extension?",
+      "url": "https://github.com/davidben/tls-key-share-prediction/issues/2",
+      "state": "OPEN",
+      "author": "sayrer",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "One thing that occurred to me is that there are use cases that could require ECH, so it could be better to include this key-share-prediction in the ECHConfig in that case?\r\n\r\nhttps://www.ietf.org/archive/id/draft-ietf-tls-esni-17.html#name-configuration-extensions\r\n\r\nWouldn't that help the concerns about authenticity of DNS data in the draft's current SVCB?",
+      "createdAt": "2023-11-12T21:36:37Z",
+      "updatedAt": "2023-11-12T21:59:54Z",
+      "closedAt": null,
+      "comments": [
+        {
+          "author": "davidben",
+          "authorAssociation": "OWNER",
+          "body": "I don't see how this would help. An ECHConfig is no more authentic than anything else you get over DNS, and tying this to ECH doesn't make a whole lot of sense. (If you have multiple ECHConfigs in a single SVCB, they'd all have the same information.)",
+          "createdAt": "2023-11-12T21:59:53Z",
+          "updatedAt": "2023-11-12T21:59:53Z"
+        }
+      ]
     }
   ],
   "pulls": []
